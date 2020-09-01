@@ -1,0 +1,40 @@
+<html>
+<body>
+<form action="{{ url_for('predict')}}" method="post">
+
+<h3>Venue</h3><select name="venue" id="venue" required="required">
+                {%for value in Venues%}
+     <option value="{{value}}">{{value}}</option>
+  {%endfor%}
+            </select>
+<h3>Batting Team</h3><select name="bat_team" id="bat_team" required="required">
+                {%for value in Bat_Bowl_Teams%}
+     <option value="{{value}}">{{value}}</option>
+  {%endfor%}
+            </select>
+<h3>Bowling Team</h3><select name="bowl_team" id="bowl_team" required="required">
+                {%for value in Bat_Bowl_Teams%}
+     <option value="{{value}}">{{value}}</option>
+  {%endfor%}
+            </select>			
+<h3>Name of the bastman</h3><select name="batsman" id="batsman" required="required">
+                {%for value in Batsmen_Bowlers%}
+     <option value="{{value}}">{{value}}</option>
+  {%endfor%}
+            </select>
+<h3>Name of the bowler</h3><select name="bowler" id="bowler" required="required">
+                {%for value in Batsmen_Bowlers%}
+     <option value="{{value}}">{{value}}</option>
+  {%endfor%}
+            </select>			
+<h3>Present Score</h3><input id="first" name="runs" type="number ">
+<h3>Num of Wickets lost</h3><input id="second" name="wickets" type="number ">
+<h3>Num of Overs</h3><input id="third" name="overs" type="number ">
+<h3>Num of Runs scored in the last 5 overs</h3><input id="fourth" name="runs_last_5" type="number ">
+<h3>Num of Wickets lost in the last 5 overs</h3><input id="fifth" name="wickets_last_5" type="number ">
+<br><br><button id="sub" type="submit ">Predict Score</button><br>
+</form>
+<br><br><h3>{{ prediction_text }}<h3>
+</body>
+</html>
+
